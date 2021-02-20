@@ -1,0 +1,112 @@
+
+
+/***** 
+    Styles for the Range Slider question theme
+    Copyright (C) 2021 - Tony Partner (http://partnersurveys.com)
+    Licensed MIT, GPL
+    Version - 1.0
+    Create date - 13/01/2021
+*****/
+
+.range-slider-question .ls-question-message.ls-em-tip.em_default {
+	display: none;
+} 
+	
+.inserted-range-slider-wrapper {
+	position: relative;
+	margin: 0 30px;
+	max-width: 700px;
+	display: none;
+}
+
+@media (max-width: 480px) {	
+	.inserted-range-slider-wrapper {
+		margin: 0 10px;
+	}
+}
+	
+.inserted-range-slider-wrapper .slider.slider-horizontal {
+	width: 100%;
+	margin: 40px 0 20px 0;
+}
+	
+.inserted-range-slider-wrapper.with-minmax .slider.slider-horizontal {
+	margin-bottom: 40px;
+}
+
+.inserted-range-slider-wrapper .slider-track,
+.inserted-range-slider-wrapper .slider-selection {
+	box-shadow: none;
+	background: transparent none;
+}
+
+.inserted-range-slider-wrapper .slider-track-low {
+	background: red;
+}
+
+.inserted-range-slider-wrapper .slider-selection {
+	background: orange;
+}
+
+.inserted-range-slider-wrapper .slider-track-high {
+	background: green;
+}
+
+.inserted-range-slider-wrapper .slider-handle {
+	background-image: none;
+}
+
+.range-slider-question.unanswered .slider-handle {
+	background-color: #6C757D !important;
+} 
+
+.inserted-range-slider-wrapper .slider-handle .inserted-tooltip {
+	position: absolute;
+	top: -30px;
+	left: 50%;
+	padding: 0 5px 2px 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px; 
+	transform: translateX(-50%);
+	cursor: default;
+}
+
+.inserted-range-slider-wrapper .slider-handle.low.near .inserted-tooltip {
+	left: 0;
+	transform: translateX(-100%);
+}
+
+.inserted-range-slider-wrapper .slider-handle.high.near .inserted-tooltip {
+	left: auto;
+	right: 0;
+	transform: translateX(100%);
+}
+
+.inserted-range-slider-wrapper .slider-handle .inserted-tooltip span {
+}
+
+.inserted-range-slider-wrapper .tooltip {
+	display: none !important;
+}
+
+.inserted-range-slider-wrapper .minmax-wrapper {
+	position: absolute;
+	bottom: 10px;
+	padding: 0 5px 2px 5px;
+	/*
+	border: 1px solid #999999;
+	border-radius: 4px; 
+	background-color: #EEEEEE;
+	*/
+}
+
+.inserted-range-slider-wrapper .minmax-wrapper.min {
+	left: 0; 
+	transform: translateX(-50%);
+}
+
+.inserted-range-slider-wrapper .minmax-wrapper.max {
+	right: 0; 
+	transform: translateX(50%);
+}
+

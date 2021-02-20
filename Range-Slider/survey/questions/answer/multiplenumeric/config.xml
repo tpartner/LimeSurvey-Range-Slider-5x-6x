@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Customization of the slider question theme.
+-->
+<config>
+	<!-- Those metadata will be displayed in the template configuration page. They are not used for now. -->
+	<metadata>
+		<name>Range-Slider</name>
+        <type>question_theme</type>
+        <title>Range Slider</title>
+		<creationDate>13/01/2021</creationDate>
+		<author>Tony Partner</author>
+		<authorEmail>tpartner@partnersurveys.com</authorEmail>
+		<authorUrl>http://partnersurveys.com</authorUrl>
+		<license>GNU General Public License version 2 or later</license>
+		<version>1.0</version>
+		<apiVersion>1</apiVersion>
+		<description>A range slider, recording two values.</description>		
+        <questionType>K</questionType>
+        <group>Mask questions</group>
+        <answerscales>0</answerscales>
+        <hasdefaultvalues>0</hasdefaultvalues>
+        <assessable>0</assessable>
+        <class>range-slider</class>
+        <last_update>2021-01-19 08:09:53</last_update>
+	<subquestions>1</subquestions></metadata>
+
+    <compatibility>
+        <version>4.0</version>
+    </compatibility>
+
+	<!--
+		Here the list of the css/js files to load.
+		Any file here will be loaded via the asset manager (when in config.php debug = 0)
+	-->
+	<files>
+		<css>
+			<filename>css/rangeSlider.css</filename>
+		</css>
+		<js>
+			<filename>scripts/rangeSlider.js</filename>
+		</js>
+		<preview>
+			<filename>preview.png</filename>
+		</preview>
+	</files>
+
+	<attributes>
+		<!-- New attributes -->
+		<attribute>
+			<name>range_slider_min</name>
+			<category>Custom options</category>
+			<sortorder>0</sortorder>
+			<inputtype>text</inputtype>
+			<expression>2</expression>
+			<help>Must be a number. If left empty, will default to 0. Expression manager can be used but it must render a number on page load (cannot be dynamic within a page).</help>
+			<caption>Slider minimum</caption>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_max</name>
+			<category>Custom options</category>
+			<sortorder>1</sortorder>
+			<inputtype>text</inputtype>
+			<expression>2</expression>
+			<help>Must be a number. If left empty, will default to 100. Expression manager can be used but it must render a number on page load (cannot be dynamic within a page).</help>
+			<caption>Slider maximum</caption>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_step</name>
+			<category>Custom options</category>
+			<sortorder>2</sortorder>
+			<inputtype>text</inputtype>
+			<expression>2</expression>
+			<help>Must be a number. If left empty, will default to 1. Expression manager can be used but it must render a number on page load (cannot be dynamic within a page).</help>
+			<caption>Slider accuracy</caption>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_low</name>
+			<category>Custom options</category>
+			<sortorder>3</sortorder>
+			<inputtype>text</inputtype>
+			<expression>2</expression>
+			<help>Must be a number. If left empty, will default to 1/3 position. Expression manager can be used but it must render a number on page load (cannot be dynamic within a page).</help>
+			<caption>Low start position (optional)</caption>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_high</name>
+			<category>Custom options</category>
+			<sortorder>4</sortorder>
+			<inputtype>text</inputtype>
+			<expression>2</expression>
+			<help>Must be a number. If left empty, will default to 2/3 position. Expression manager can be used but it must render a number on page load (cannot be dynamic within a page).</help>
+			<caption>High start position (optional)</caption>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_record</name>
+			<category>Custom options</category>
+			<sortorder>5</sortorder>
+			<inputtype>switch</inputtype>
+			<options>
+				<no>No</no> <!-- Switch returns value 0 -->
+				<yes>Yes</yes> <!-- Switch returns value 1 -->
+			</options>
+			<default>0</default>
+			<help>Record the initial slider values.</help>
+			<caption>Record start values</caption>
+		</attribute>	
+		
+		<attribute>
+			<name>range_slider_prefix</name>
+			<category>Custom options</category>
+			<sortorder>6</sortorder>
+			<inputtype>text</inputtype>
+			<help>Prefix for the value displayed in the slider tooltips.</help>
+			<caption>Prefix for tooltips</caption>
+            <i18n>1</i18n>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_suffix</name>
+			<category>Custom options</category>
+			<sortorder>7</sortorder>
+			<inputtype>text</inputtype>
+			<help>Suffix for the value displayed in the slider tooltips.</help>
+			<caption>Suffix for tooltips</caption>
+            <i18n>1</i18n>
+		</attribute>
+		
+		<attribute>
+			<name>range_show_minmax</name>
+			<category>Custom options</category>
+			<sortorder>8</sortorder>
+			<inputtype>switch</inputtype>
+			<options>
+				<no>No</no> <!-- Switch returns value 0 -->
+				<yes>Yes</yes> <!-- Switch returns value 1 -->
+			</options>
+			<default>0</default>
+			<help>Show the minimum and maximum slider values.</help>
+			<caption>Show min/max</caption>
+		</attribute>	
+		
+		<attribute>
+			<name>range_minmax_prefix</name>
+			<category>Custom options</category>
+			<sortorder>9</sortorder>
+			<inputtype>text</inputtype>
+			<help>Prefix for the min/max values.</help>
+			<caption>Prefix for min/max</caption>
+            <i18n>1</i18n>
+		</attribute>
+		
+		<attribute>
+			<name>range_minmax_suffix</name>
+			<category>Custom options</category>
+			<sortorder>10</sortorder>
+			<inputtype>text</inputtype>
+			<help>Suffix for the min/max values.</help>
+			<caption>Suffix for min/max</caption>
+            <i18n>1</i18n>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_colour_low</name>
+			<category>Custom options</category>
+			<sortorder>11</sortorder>
+			<inputtype>text</inputtype>
+			<help>Color for the low range bar. Must be a valid value for the CSS background-color Property.</help>
+			<caption>Low range color</caption>
+			<default>#FF0000</default>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_colour_med</name>
+			<category>Custom options</category>
+			<sortorder>12</sortorder>
+			<inputtype>text</inputtype>
+			<help>Color for the middle range bar. Must be a valid value for the CSS background-color Property.</help>
+			<caption>Middle range color</caption>
+			<default>#FFA500</default>
+		</attribute>
+		
+		<attribute>
+			<name>range_slider_colour_high</name>
+			<category>Custom options</category>
+			<sortorder>13</sortorder>
+			<inputtype>text</inputtype>
+			<help>Color for the high range bar. Must be a valid value for the CSS background-color Property.</help>
+			<caption>High range color</caption>
+			<default>#008000</default>
+		</attribute>
+		
+		<attribute>
+			<name>range_handle_colour_low</name>
+			<category>Custom options</category>
+			<sortorder>14</sortorder>
+			<inputtype>text</inputtype>
+			<help>Color for the low slider handle. Must be a valid value for the CSS background-color Property.</help>
+			<caption>Low handle color</caption>
+			<default>#337AB7</default>
+		</attribute>
+		
+		<attribute>
+			<name>range_handle_colour_high</name>
+			<category>Custom options</category>
+			<sortorder>15</sortorder>
+			<inputtype>text</inputtype>
+			<help>Color for the high slider handle. Must be a valid value for the CSS background-color Property.</help>
+			<caption>High handle color</caption>
+			<default>#337AB7</default>
+		</attribute>
+		
+		<!-- Hide/disable some core attributes -->
+		<attribute>
+            <name>prefix</name>
+            <category>Display</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+            <i18n>1</i18n>
+        </attribute>
+        <attribute>
+            <name>suffix</name>
+            <category>Display</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+            <i18n>1</i18n>
+        </attribute>
+        <attribute>
+            <name>label_input_columns</name>
+            <category>Display</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>input_size</name>
+            <category>Display</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>text_input_width</name>
+            <category>Display</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+		<attribute>
+            <name>random_order</name>
+            <category>Display</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+		
+        <attribute>
+            <name>max_num_value</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>maximum_chars</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>min_num_value</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>min_num_value_n</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>num_value_int_only</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>equals_num_value</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>value_range_allows_missing</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>max_num_value_n</name>
+            <category>Input</category>
+            <sortorder>1110</sortorder>
+            <inputtype/>
+        </attribute>
+		
+        <attribute>
+            <name>min_answers</name>
+            <category>Logic</category>
+            <sortorder>1111</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>max_answers</name>
+            <category>Logic</category>
+            <sortorder>1111</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>array_filter_exclude</name>
+            <category>Logic</category>
+            <sortorder>1111</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>array_filter_style</name>
+            <category>Logic</category>
+            <sortorder>1111</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>array_filter</name>
+            <category>Logic</category>
+            <sortorder>1111</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>exclude_all_others</name>
+            <category>Logic</category>
+            <sortorder>1111</sortorder>
+            <inputtype/>
+        </attribute>
+		
+        <attribute>
+            <name>slider_layout</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_min</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_max</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_accuracy</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_showminmax</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_separator</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_middlestart</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_default</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_default_set</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_reset</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_orientation</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_reversed</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_handle</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+        <attribute>
+            <name>slider_custom_handle</name>
+            <category>Slider</category>
+            <sortorder>1112</sortorder>
+            <inputtype/>
+        </attribute>
+	</attributes>
+
+	<!-- Here datas about how LimeSurvey should load the core js/css of the question -->
+	<engine>
+		<load_core_css>true</load_core_css>
+		<load_core_js>true</load_core_js>
+		<show_as_template>true</show_as_template>
+		<show_as_question_type>true</show_as_question_type>
+
+		<!-- Here, you can publish packages set as third party extensions in application/config/third_party or  application/config/package -->
+		<!-- If bootstrap is registered as a css framework, it will be loaded first -->
+		<packages>
+			<!--
+            <add>qTip2</add>
+            <add>bootstrap/plugins/datetimepicker</add>
+			-->
+		</packages>
+    </engine>
+</config>
