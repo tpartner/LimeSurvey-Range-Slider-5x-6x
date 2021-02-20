@@ -13,7 +13,7 @@ Compatible with LimeSurvey version 4.x.
 2) Create a "Range-Slider" question, click Save.  
 ![Image Range Slider 2](/Range-Slider/survey/questions/answer/multiplenumeric/assets/images/rs_2.png)
 
-5) Create two subquestions.  
+3) Create two subquestions.  
 ![Image Range Slider 4](/Range-Slider/survey/questions/answer/multiplenumeric/assets/images/rs_4.png)
 
 4) Adjust the settings in the "Custom options" question attributes.   
