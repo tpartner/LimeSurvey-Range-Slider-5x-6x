@@ -37,7 +37,8 @@
 .inserted-range-slider-wrapper .slider-track,
 .inserted-range-slider-wrapper .slider-selection {
 	box-shadow: none;
-	background: transparent none;
+	background: transparent;
+	background-image: none !important;
 }
 
 .inserted-range-slider-wrapper .slider-track-low {
