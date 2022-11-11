@@ -90,7 +90,7 @@
 			// Insert custom tooltips
 			$('.slider-handle', thisQuestion).each(function(i) {
 				var positionClass = (i == 0) ? 'low' : 'high';
-				$(this).addClass(positionClass).append('<div class="inserted-tooltip hidden"></div>');
+				$(this).addClass(positionClass).append('<div class="inserted-tooltip hidden d-none"></div>');
 			});
 			handleTooltips();
 			
@@ -141,7 +141,7 @@
 				}
 				$(':text.form-control', thisQuestion).each(function(i) {
 					if($(this).val() != '') {
-						$('.inserted-tooltip:eq('+i+')', thisQuestion).html(prefix+'<span class="tip-value">'+$(this).val()+'</span>'+suffix).removeClass('hidden');
+						$('.inserted-tooltip:eq('+i+')', thisQuestion).html(prefix+'<span class="tip-value">'+$(this).val()+'</span>'+suffix).removeClass('hidden d-none');
 					}
 				});
 			}
