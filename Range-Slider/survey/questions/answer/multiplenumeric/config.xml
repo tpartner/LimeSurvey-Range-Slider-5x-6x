@@ -7,8 +7,8 @@
         <name>Range-Slider</name>
         <type>question_theme</type>
         <title>Range Slider</title>
-        <creationDate>13/01/2021</creationDate>
-        <last_update>28/06/2021</last_update>
+        <creationDate>2021-01-13 08:00</creationDate>
+        <last_update>2023-01-19 08:00</last_update>
         <author>Tony Partner</author>
         <authorUrl>http://partnersurveys.com</authorUrl>
         <supportUrl>None</supportUrl>
@@ -29,6 +29,7 @@
     <compatibility>
         <version>4.0</version>
         <version>5.0</version>
+        <version>6.0</version>
     </compatibility>
 
     <!--
